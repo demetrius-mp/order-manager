@@ -15,4 +15,4 @@ class Order(Base):
     done_at = Column(DateTime, nullable=True)
     done = Column(Boolean, default=False)
 
-    items = relationship("OrderItem", back_populates="order")
+    items = relationship("OrderItem", back_populates="order", cascade="all,delete")
