@@ -25,6 +25,12 @@ def create(db: Session, order_id: int, order_item: OrderItemCreate):
     return instance
 
 
+def update_by_id(db: Session, order_item_id: int, order_item: OrderItemCreate):
+    rows: int = db.query(dbOrderItem).filter(dbOrderItem.id == order_item_id).update(order_item.dict())
+    db.commit()
+    return rows
+
+
 def delete_by_order_id(db: Session, order_id: int):
     rows: int = db.query(dbOrderItem).filter(dbOrderItem.order_id == order_id).delete()
     db.commit()

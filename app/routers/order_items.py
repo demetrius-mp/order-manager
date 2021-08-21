@@ -20,6 +20,21 @@ def create_order_item(order_id: int, order_item: OrderItemCreate, db: Session = 
     return order_items.create(db, order_id, order_item)
 
 
+@router.put("/", response_model=OrderItem)
+def create_order_item(order_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
+    return order_items.create(db, order_id, order_item)
+
+
+@router.patch("/{order_item_id}", response_model=int)
+def update_order_item(order_item_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
+    return order_items.update_by_id(db, order_item_id=order_item_id, order_item=order_item)
+
+
+@router.put("/{order_item_id}", response_model=int)
+def update_order_item(order_item_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
+    return order_items.update_by_id(db, order_item_id=order_item_id, order_item=order_item)
+
+
 @router.get("/", response_model=List[OrderItem])
 def read_order_items(order_id: int, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return order_items.get_by_order_id(db, order_id=order_id, skip=skip, limit=limit)
