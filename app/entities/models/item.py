@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float
 
-from app.entities.models import Base
+from app.entities.database import Base
 
 
 class Item(Base):

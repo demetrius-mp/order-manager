@@ -1,10 +1,9 @@
 from fastapi import FastAPI
 
 from app.routers import items, orders, order_items
-from app.entities.database import engine
-from app.entities import models
+from app.entities.database import engine, Base
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
