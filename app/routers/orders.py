@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.dependencies import get_db
-from app.entities.schemas import Order, OrderCreate
+from app.entities.schemas import Order, OrderCreate, OrderUpdate
 from app.crud import orders
 
 router = APIRouter(
@@ -18,6 +18,11 @@ router = APIRouter(
 @router.post("", response_model=Order)
 def create_order(order: OrderCreate,  db: Session = Depends(get_db)):
     return orders.create(db, order=order)
+
+
+@router.patch("/{order_id}", response_model=int)
+def update_order(order: OrderUpdate, order_id: int, db: Session = Depends(get_db)):
+    return orders.update_by_id(db, order=order, order_id=order_id)
 
 
 @router.get("", response_model=List[Order])

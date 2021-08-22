@@ -16,6 +16,11 @@ class OrderCreate(OrderBase):
     pass
 
 
+class OrderUpdate(BaseModel):
+    customer: Optional[str] = None
+    done: Optional[bool] = None
+
+
 class Order(OrderBase):
     id: int
     done_at: Optional[datetime.datetime] = None

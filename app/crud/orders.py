@@ -1,9 +1,9 @@
 from typing import Optional
 
-from sqlalchemy.orm import Session, joinedload
+from sqlalchemy.orm import Session
 
 from app.entities.models import Order as dbOrder
-from app.entities.schemas import OrderCreate
+from app.entities.schemas import OrderCreate, OrderUpdate
 
 
 def get_by_id(db: Session, order_id: int):
@@ -23,6 +23,18 @@ def create(db: Session, order: OrderCreate):
     db.commit()
     db.refresh(instance)
     return instance
+
+
+def update_by_id(db: Session, order: OrderUpdate, order_id: int):
+    rows = 0
+    if order.done is not None:
+        rows: int = db.query(dbOrder).filter(dbOrder.id == order_id).update({dbOrder.done: order.done})
+
+    if order.customer is not None:
+        rows: int = db.query(dbOrder).filter(dbOrder.id == order_id).update({dbOrder.customer: order.customer})
+
+    db.commit()
+    return rows
 
 
 def delete_by_id(db: Session, order_id: int):
