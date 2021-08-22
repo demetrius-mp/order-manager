@@ -34,10 +34,11 @@ def read_order(order_id: int, db: Session = Depends(get_db)):
     return instance
 
 
-@router.delete("/{order_id}", response_model=Order)
-def read_order(order_id: int, db: Session = Depends(get_db)):
-    instance = orders.delete_by_id(db, order_id=order_id)
-    if instance is None:
+@router.delete("/{order_id}", response_model=int)
+def delete_order(order_id: int, db: Session = Depends(get_db)):
+    rows = orders.delete_by_id(db, order_id=order_id)
+
+    if rows == 0:
         raise HTTPException(status_code=404, detail="Order not found")
 
-    return instance
+    return rows

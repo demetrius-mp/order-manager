@@ -1,6 +1,6 @@
 from typing import Optional
 
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from app.entities.models import Order as dbOrder
 from app.entities.schemas import OrderCreate
@@ -26,10 +26,6 @@ def create(db: Session, order: OrderCreate):
 
 
 def delete_by_id(db: Session, order_id: int):
-    instance = get_by_id(db, order_id=order_id)
-    if instance is None:
-        return None
-
-    db.delete(instance)
+    rows: int = db.query(dbOrder).filter(dbOrder.id == order_id).delete()
     db.commit()
-    return instance
+    return rows
