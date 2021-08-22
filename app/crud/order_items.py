@@ -38,10 +38,6 @@ def delete_by_order_id(db: Session, order_id: int):
 
 
 def delete_by_id(db: Session, order_item_id: int):
-    instance = get_by_id(db, order_item_id=order_item_id)
-    if instance is None:
-        return None
-
-    db.delete(instance)
+    rows: int = db.query(dbOrderItem).filter(dbOrderItem.id == order_item_id).delete()
     db.commit()
-    return instance
+    return rows
