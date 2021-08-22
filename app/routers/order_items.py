@@ -35,7 +35,7 @@ def update_order_item(order_item_id: int, order_item: OrderItemCreate, db: Sessi
     return order_items.update_by_id(db, order_item_id=order_item_id, order_item=order_item)
 
 
-@router.get("/", response_model=List[OrderItem])
+@router.get("", response_model=List[OrderItem])
 def read_order_items(order_id: int, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return order_items.get_by_order_id(db, order_id=order_id, skip=skip, limit=limit)
 
@@ -49,7 +49,7 @@ def read_order_item(order_item_id: int, db: Session = Depends(get_db)):
     return instance
 
 
-@router.delete("/", response_model=int)
+@router.delete("", response_model=int)
 def delete_order_items(order_id: int, db: Session = Depends(get_db)):
     rows = order_items.delete_by_order_id(db, order_id=order_id)
     return rows
