@@ -15,12 +15,12 @@ router = APIRouter(
 )
 
 
-@router.post("/", response_model=Item)
+@router.post("", response_model=Item)
 def create_item(item: ItemCreate,  db: Session = Depends(get_db)):
     return items.create(db, item=item)
 
 
-@router.get("/", response_model=List[Item])
+@router.get("", response_model=List[Item])
 def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return items.get_all(db, skip=skip, limit=limit)
 

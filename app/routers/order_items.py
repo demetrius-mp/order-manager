@@ -15,12 +15,12 @@ router = APIRouter(
 )
 
 
-@router.post("/", response_model=OrderItem)
+@router.post("", response_model=OrderItem)
 def create_order_item(order_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
     return order_items.create(db, order_id, order_item)
 
 
-@router.put("/", response_model=OrderItem)
+@router.put("", response_model=OrderItem)
 def create_order_item(order_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
     return order_items.create(db, order_id, order_item)
 
