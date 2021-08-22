@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
@@ -21,8 +21,8 @@ def create_order(order: OrderCreate,  db: Session = Depends(get_db)):
 
 
 @router.get("", response_model=List[Order])
-def read_orders(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    return orders.get_all(db, skip=skip, limit=limit)
+def read_orders(skip: int = 0, limit: int = 100, done: Optional[bool] = None, db: Session = Depends(get_db)):
+    return orders.get_all(db, skip=skip, limit=limit, done=done)
 
 
 @router.get("/{order_id}", response_model=Order)
