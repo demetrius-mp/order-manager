@@ -2,6 +2,8 @@ from typing import Optional
 
 from pydantic import BaseModel
 
+from app.entities.schemas.item import Item
+
 
 class OrderItemBase(BaseModel):
     item_id: int
@@ -17,6 +19,7 @@ class OrderItemCreate(OrderItemBase):
 class OrderItem(OrderItemBase):
     id: int
     order_id: int
+    item: Item
 
     class Config:
         orm_mode = True

@@ -15,4 +15,4 @@ class OrderItem(Base):
     combo = Column(Boolean, default=False)
 
     order = relationship("Order", back_populates="items")
-    item = relationship("Item")
+    item = relationship("Item", back_populates="order_item")

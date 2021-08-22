@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy.orm import relationship
 
 from app.entities.database import Base
 
@@ -10,3 +11,5 @@ class Item(Base):
     name = Column(String, index=True)
     price = Column(Float)
     price_combo = Column(Float)
+
+    order_item = relationship("OrderItem", back_populates="item")
