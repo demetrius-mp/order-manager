@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from app.entities.models import OrderItem as dbOrderItem
-from app.entities.schemas import OrderItemCreate
+from backend.entities.models import OrderItem as dbOrderItem
+from backend.entities.schemas import OrderItemCreate
 
 
 def get_by_id(db: Session, order_item_id: int):

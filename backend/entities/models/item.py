@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.orm import relationship
 
-from app.entities.database import Base
+from backend.entities.database import Base
 
 
 class Item(Base):

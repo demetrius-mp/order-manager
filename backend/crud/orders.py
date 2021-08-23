@@ -2,8 +2,8 @@ from typing import Optional
 
 from sqlalchemy.orm import Session
 
-from app.entities.models import Order as dbOrder
-from app.entities.schemas import OrderCreate, OrderUpdate
+from backend.entities.models import Order as dbOrder
+from backend.entities.schemas import OrderCreate, OrderUpdate
 
 
 def get_by_id(db: Session, order_id: int):

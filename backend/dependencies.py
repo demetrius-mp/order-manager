@@ -1,4 +1,4 @@
-from app.entities.database import SessionLocal
+from backend.entities.database import SessionLocal
 
 
 def get_db():
