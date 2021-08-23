@@ -16,6 +16,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(orders.router)
-app.include_router(items.router)
-app.include_router(order_items.router)
+app.include_router(orders.router, prefix='/api/v1')
+app.include_router(items.router, prefix='/api/v1')
+app.include_router(order_items.router, prefix='/api/v1')
