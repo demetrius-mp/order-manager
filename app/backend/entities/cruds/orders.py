@@ -3,7 +3,7 @@ from typing import Optional
 from sqlalchemy.orm import Session
 
 from app.backend.entities.models import Order as dbOrder
-from app.backend.entities.schemas import OrderCreate, OrderUpdate
+from app.backend.entities.serializers import OrderCreate, OrderUpdate
 
 
 def get_by_id(db: Session, order_id: int):

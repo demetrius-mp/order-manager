@@ -4,8 +4,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.backend.dependencies import get_db
-from app.backend.entities.schemas import Order, OrderCreate, OrderUpdate
-from app.backend.crud import orders
+from app.backend.entities.serializers import Order, OrderCreate, OrderUpdate
+from app.backend.entities.cruds import orders
 
 router = APIRouter(
     prefix="/orders",

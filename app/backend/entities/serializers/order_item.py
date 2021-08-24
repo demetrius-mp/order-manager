@@ -2,7 +2,7 @@ from typing import Optional
 
 from pydantic import BaseModel
 
-from app.backend.entities.schemas.item import Item
+from app.backend.entities.serializers.item import Item
 
 
 class OrderItemBase(BaseModel):

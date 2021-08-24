@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
 from app.backend.entities.models import Item as dbItem
-from app.backend.entities.schemas import ItemCreate
+from app.backend.entities.serializers import ItemCreate
 
 
 def get_by_id(db: Session, item_id: int):

@@ -3,7 +3,7 @@ from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
-from app.backend.entities.schemas.order_item import OrderItem
+from app.backend.entities.serializers.order_item import OrderItem
 
 
 class OrderBase(BaseModel):
