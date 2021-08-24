@@ -35,7 +35,7 @@ def read_item(item_id: int, db: Session = Depends(get_db)):
 
 
 @router.delete("/{item_id}", response_model=Item)
-def read_item(item_id: int, db: Session = Depends(get_db)):
+def delete_item(item_id: int, db: Session = Depends(get_db)):
     instance = items.delete_by_id(db, item_id=item_id)
     if instance is None:
         raise HTTPException(status_code=404, detail="Item not found")

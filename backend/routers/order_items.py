@@ -21,17 +21,18 @@ def create_order_item(order_id: int, order_item: OrderItemCreate, db: Session = 
 
 
 @router.put("", response_model=OrderItem)
-def create_order_item(order_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
+def create_order_item_put(order_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
     return order_items.create(db, order_id, order_item)
 
 
 @router.patch("/{order_item_id}", response_model=int)
-def update_order_item(order_item_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
+def update_order_item(order_item_id: int, order_item: OrderItemCreate,
+                      db: Session = Depends(get_db)):
     return order_items.update_by_id(db, order_item_id=order_item_id, order_item=order_item)
 
 
 @router.put("/{order_item_id}", response_model=int)
-def update_order_item(order_item_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
+def update_order_item_put(order_item_id: int, order_item: OrderItemCreate, db: Session = Depends(get_db)):
     return order_items.update_by_id(db, order_item_id=order_item_id, order_item=order_item)
 
 
