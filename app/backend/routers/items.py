@@ -3,9 +3,9 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from backend.dependencies import get_db
-from backend.entities.schemas import Item, ItemCreate
-from backend.crud import items
+from app.backend.dependencies import get_db
+from app.backend.entities.schemas import Item, ItemCreate
+from app.backend.crud import items
 
 router = APIRouter(
     prefix="/items",

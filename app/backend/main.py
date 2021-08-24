@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from backend.routers import items, orders, order_items
-from backend.entities.database import engine, Base
+from app.backend.routers import items, orders, order_items
+from app.backend.entities.database import engine, Base
 
 Base.metadata.create_all(bind=engine)
 

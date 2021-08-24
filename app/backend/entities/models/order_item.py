@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, Text
 from sqlalchemy.orm import relationship
 
-from backend.entities.database import Base
+from app.backend.entities.database import Base
 
 
 class OrderItem(Base):

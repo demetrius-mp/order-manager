@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-import backend.main as backend
-import frontend.main as frontend
+import app.backend.main as backend
+import app.frontend.main as frontend
 
 app = FastAPI()
 
