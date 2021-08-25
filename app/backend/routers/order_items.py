@@ -3,7 +3,7 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from app.backend.dependencies import get_db
+from app.backend.routers.dependencies import get_db
 from app.backend.entities.serializers import OrderItem, OrderItemCreate
 from app.backend.entities.cruds import order_items
 
