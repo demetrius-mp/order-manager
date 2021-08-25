@@ -10,6 +10,11 @@ templates = Jinja2Templates(directory="app/frontend/templates")
 
 
 @router.get('/')
-@router.get('/pedidos')
-def pedidos(request: Request):
-    return templates.TemplateResponse("pedidos.html", {'request': request})
+@router.get('/orders')
+def orders(request: Request):
+    return templates.TemplateResponse("orders.html", {'request': request})
+
+
+@router.get('/iitems')
+def items(request: Request):
+    return templates.TemplateResponse("items.html", {'request': request})
