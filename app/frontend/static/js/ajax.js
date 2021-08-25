@@ -1,4 +1,4 @@
-function getAll(url, success=undefined, error=undefined) {
+function getAll(url, success = undefined, error = undefined) {
     $.ajax({
         type: "GET",
         url: url,
@@ -12,7 +12,7 @@ function getAll(url, success=undefined, error=undefined) {
     })
 }
 
-function getById(url, success=undefined, error=undefined) {
+function getById(url, success = undefined, error = undefined) {
     $.ajax({
         type: "GET",
         url: url,
@@ -25,7 +25,7 @@ function getById(url, success=undefined, error=undefined) {
     })
 }
 
-function patch(url, json, success=undefined, error=undefined) {
+function patch(url, json, success = undefined, error = undefined) {
     $.ajax({
         type: "PATCH",
         url: url,
@@ -41,7 +41,7 @@ function patch(url, json, success=undefined, error=undefined) {
     })
 }
 
-function post(url, json, success=undefined, error=undefined) {
+function post(url, json, success = undefined, error = undefined) {
     $.ajax({
         type: "POST",
         url: url,
@@ -57,7 +57,7 @@ function post(url, json, success=undefined, error=undefined) {
     })
 }
 
-function put(url, json, success=undefined, error=undefined) {
+function put(url, json, success = undefined, error = undefined) {
     $.ajax({
         type: "PUT",
         url: url,
@@ -73,7 +73,7 @@ function put(url, json, success=undefined, error=undefined) {
     })
 }
 
-function delete_(url, success=undefined, error=undefined) {
+function delete_(url, success = undefined, error = undefined) {
     $.ajax({
         type: "DELETE",
         url: url,

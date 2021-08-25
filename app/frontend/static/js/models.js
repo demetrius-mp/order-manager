@@ -8,7 +8,7 @@ class Item {
         this.price_combo = price_combo ? price_combo : price
     }
 
-    static getAll(success=undefined, error=undefined) {
+    static getAll(success = undefined, error = undefined) {
         getAll(
             apiRoot + "items",
             success, error
@@ -17,15 +17,15 @@ class Item {
 }
 
 class Order {
-    static create(customer, success=undefined, error=undefined) {
+    static create(customer, success = undefined, error = undefined) {
         post(
             apiRoot + "orders",
-            {customer: customer},
+            { customer: customer },
             success, error
         )
     }
 
-    static update(id, fields, success=undefined, error=undefined) {
+    static update(id, fields, success = undefined, error = undefined) {
         patch(
             apiRoot + "orders/" + id,
             fields,
@@ -33,28 +33,28 @@ class Order {
         )
     }
 
-    static deleteById(id, success=undefined, error=undefined) {
+    static deleteById(id, success = undefined, error = undefined) {
         delete_(
             apiRoot + "orders/" + id,
             success, error
         )
     }
 
-    static getById(id, success=undefined, error=undefined) {
+    static getById(id, success = undefined, error = undefined) {
         return getById(
             apiRoot + "orders/" + id,
             success, error
         )
     }
 
-    static getAll(success=undefined, error=undefined) {
+    static getAll(success = undefined, error = undefined) {
         getAll(
             apiRoot + "orders",
             success, error
         )
     }
 
-    static getByState(done=false, success=undefined, error=undefined) {
+    static getByState(done = false, success = undefined, error = undefined) {
         const state_filter = done ? 'done=true' : 'done=false'
         return getAll(
             apiRoot + "orders?" + state_filter,
@@ -65,21 +65,21 @@ class Order {
 
 class OrderItem {
 
-    static getAllByOrderId(orderId, success=undefined, error=undefined) {
+    static getAllByOrderId(orderId, success = undefined, error = undefined) {
         getAll(
             apiRoot + "orders/" + orderId + "/items",
             success, error
         )
     }
 
-    static deleteById(orderId, orderItemId, success=undefined, error=undefined) {
+    static deleteById(orderId, orderItemId, success = undefined, error = undefined) {
         delete_(
             apiRoot + "orders/" + orderId + "/items/" + orderItemId,
             success, error
         )
     }
 
-    static put(json, orderId, orderItemId=undefined, success=undefined, error=undefined) {
+    static put(json, orderId, orderItemId = undefined, success = undefined, error = undefined) {
         const urlHelper = orderItemId ? '/' + orderItemId : ''
         const url = apiRoot + "orders/" + orderId + "/items" + urlHelper
         put(
