@@ -1,6 +1,7 @@
 .clickable {
     cursor: pointer;
 }
+
 textarea {
-    overflow:hidden;
+    overflow: hidden;
 }
