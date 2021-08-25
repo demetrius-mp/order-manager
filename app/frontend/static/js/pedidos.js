@@ -29,19 +29,11 @@ $('#filtros').on('click', '.btn', function () {
     $pedidos.empty()
 
     const done = $(this).attr('data-done')
-    if (done === undefined) {
-        Order.getAll(
-            (data, textStatus, jqXHR) =>
-                data.forEach(e => OrderCard.add($pedidos, e))
-        )
-    }
-    else {
-        Order.getByState(
-            done === 'true',
-            (data, textStatus, jqXHR) =>
-                data.forEach(e => OrderCard.add($pedidos, e))
-        )
-    }
+    Order.getByState(
+        done === 'true',
+        (data, textStatus, jqXHR) =>
+            data.forEach(e => OrderCard.add($pedidos, e))
+    )
 })
 
 $('button[data-done="false"]').click()
