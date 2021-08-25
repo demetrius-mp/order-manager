@@ -2,6 +2,7 @@ const $modal_confirmacao = $('#modal-confirmacao')
 const $modal_adicionar_pedido = $('#modal-adicionar-pedido')
 const $modal_adicionar_item = $('#modal-editar-itens')
 const $pedidos = $('#pedidos')
+const $criarPedido = $('#criar-pedido')
 
 // autosizing for textarea inputs
 $(document).on('input', 'textarea', function () {
@@ -15,6 +16,10 @@ Item.getAll(
         data.forEach(e => {
             items.push(e)
         })
+        if (data.length === 0) {
+            $criarPedido.prop("disabled", true)
+            $pedidos.append("<h1><a href='/items' class='text-decoration-none'>Cadastre um item</a> antes de adicionar novos pedidos.</h1>")
+        }
     },
     (jqXHR, textStatus, errorThrown) => {
         tata.error("Falha de comunicação", "Verifique o servidor da API", {
@@ -38,7 +43,7 @@ $('#filtros').on('click', '.btn', function () {
 
 $('button[data-done="false"]').click()
 
-$('#criar-pedido').on('click', function () {
+$criarPedido.on('click', function () {
     $modal_adicionar_pedido.modal('show')
 
     const $modalfooter = $modal_adicionar_pedido.find('.modal-footer')

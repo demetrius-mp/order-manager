@@ -15,6 +15,6 @@ def orders(request: Request):
     return templates.TemplateResponse("orders.html", {'request': request})
 
 
-@router.get('/iitems')
+@router.get('/items')
 def items(request: Request):
     return templates.TemplateResponse("items.html", {'request': request})
