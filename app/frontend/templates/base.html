@@ -10,7 +10,7 @@
         href="{{ url_for('static', path='/dependencies/bootstrap/css/bootstrap-icons.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
     <link type="image/x-icon" rel="shortcut icon" href="{{ url_for('static', path='/svg/icon.svg') }}">
-    <title>Gestão de pedidos</title>
+    <title>Painel admin</title>
 </head>
 
 <body>
@@ -19,8 +19,8 @@
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/"
-                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <a
+                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none clickable">
                         <span class="fs-5 d-none d-sm-inline">Menu</span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
@@ -33,7 +33,8 @@
                         </li>
                         <li>
                             <a href="{{ url_for('pedidos') }}" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Pedidos</span></a>
+                                <i class="fs-4 bi-card-list"></i> <span
+                                    class="ms-1 d-none d-sm-inline">Pedidos</span></a>
                         </li>
                         <li>
                             <a href="#" class="nav-link px-0 align-middle">
@@ -52,7 +53,7 @@
                     <div class="dropdown pb-4">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
+                            <img src="https://github.com/demetrius-mp.png" alt="hugenerd" width="30" height="30"
                                 class="rounded-circle">
                             <span class="d-none d-sm-inline mx-1">Admin</span>
                         </a>
