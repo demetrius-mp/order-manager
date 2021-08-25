@@ -17,3 +17,8 @@ def home(request: Request):
 @router.get('/pedidos')
 def pedidos(request: Request):
     return templates.TemplateResponse("pedidos.html", {'request': request})
+
+
+@router.get('/admin')
+def admin(request: Request):
+    return templates.TemplateResponse("admin.html", {'request': request})
